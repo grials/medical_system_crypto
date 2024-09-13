@@ -1,0 +1,54 @@
+{
+  "name": "medical_system_crypto",
+  "version": "1.0.0",
+  "description": "Medical System Crypto",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "rimraf dist/ && tsc",
+    "test:basic": "ts-node src/tests/basic.ts",
+    "test": "nyc mocha --require ts-node/register --require source-map-support/register --recursive --timeout 10000 src/**/*.test.ts",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "lint": "tslint -p tsconfig.json",
+    "commit": "git-cz",
+    "release": "standard-version",
+    "docs": "typedoc --out docs src",
+    "gh-pages": "rimraf docs && npm run docs && gh-pages -d docs",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run lint"
+  },
+  "author": "Jose Manuel Mendez Romero",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grials/medical_system_crypto.git"
+  },
+  "bugs": {
+    "url": "https://github.com/grials/medical_system_crypto/issues"
+  },
+  "homepage": "https://github.com/grials/medical_system_crypto#readme",
+  "devDependencies": {
+    "@types/chai": "^4.3.19",
+    "@types/mocha": "^10.0.8",
+    "@types/node": "^22.5.4",
+    "chai": "^5.1.1",
+    "commitizen": "^4.3.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "gh-pages": "^6.1.1",
+    "mocha": "^10.7.3",
+    "nyc": "^17.0.0",
+    "prettier": "^3.3.3",
+    "rimraf": "^6.0.1",
+    "standard-version": "^9.5.0",
+    "ts-node": "^10.9.2",
+    "tslint": "^6.1.2",
+    "tslint-config-prettier": "^1.18.0",
+    "typedoc": "^0.26.7",
+    "typescript": "^5.6.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
