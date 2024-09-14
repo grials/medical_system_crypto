@@ -1,5 +1,5 @@
 {
-  "name": "medical_system_crypto",
+  "name": "@grials/medical_system_crypto",
   "version": "1.0.1",
   "description": "Medical System Crypto",
   "main": "dist/index.js",
