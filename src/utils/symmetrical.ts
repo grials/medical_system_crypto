@@ -11,7 +11,7 @@ export interface IKey {
 export const symmetricalKeyFromPassword = (password: string, iv?: Buffer): IKey => {
   let hmac = createHmac(password, 'salt');
   if (hmac.length < 32) {
-    hmac = [hmac, Array(32 - hmac.length).map(() => '#')].join('');
+    hmac = [hmac, Array.from({ length: 32 - hmac.length }, () => '#')].join('');
   }
   return {
     key: Buffer.from(hmac.slice(0, 32)),
